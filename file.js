@@ -1,8 +1,10 @@
 const data = require("./food.json");
-
+const names = (name) => {
+  return name.foodname;
+};
 // function to list all the food items
 const listAll = () => {
-  const items = data.map((food) => food.foodname);
+  const items = data.map(names);
   console.log(items);
 };
 listAll();
@@ -11,7 +13,7 @@ listAll();
 const vegetables = () => {
   const filteredVeggies = data
     .filter((food) => food.category === "Vegetable")
-    .map((food) => food.foodname);
+    .map(names);
   console.log(filteredVeggies);
 };
 vegetables();
@@ -21,7 +23,7 @@ vegetables();
 const fruits = () => {
   const filteredFruits = data
     .filter((food) => food.category === "Fruit")
-    .map((food) => food.foodname);
+    .map(names);
   console.log(filteredFruits);
 };
 fruits();
@@ -31,7 +33,7 @@ fruits();
 const protien = () => {
   const filteredProtein = data
     .filter((food) => food.category === "Protein")
-    .map((food) => food.foodname);
+    .map(names);
   console.log(filteredProtein);
 };
 protien();
@@ -41,7 +43,7 @@ protien();
 const nuts = () => {
   const filteredNuts = data
     .filter((food) => food.category === "Nuts")
-    .map((food) => food.foodname);
+    .map(names);
   console.log(filteredNuts);
 };
 nuts();
@@ -51,7 +53,7 @@ nuts();
 const grain = () => {
   const filteredGrains = data
     .filter((food) => food.category === "Grain")
-    .map((food) => food.foodname);
+    .map(names);
   console.log(filteredGrains);
 };
 grain();
@@ -61,7 +63,7 @@ grain();
 const dairy = () => {
   const filteredDairy = data
     .filter((food) => food.category === "Dairy")
-    .map((food) => food.foodname);
+    .map(names);
   console.log(filteredDairy);
 };
 dairy();
@@ -69,9 +71,7 @@ dairy();
 // function to list all the food items with calorie above 100
 
 const calorieDense = () => {
-  const dense = data
-    .filter((food) => food.calorie > 100)
-    .map((food) => food.foodname);
+  const dense = data.filter((food) => food.calorie > 100).map(names);
   console.log(dense);
 };
 calorieDense();
@@ -79,9 +79,7 @@ calorieDense();
 // function to list all the food items with calorie below 100
 
 const lowCalorie = () => {
-  const low = data
-    .filter((food) => food.calorie < 100)
-    .map((food) => food.foodname);
+  const low = data.filter((food) => food.calorie < 100).map(names);
   console.log(low);
 };
 lowCalorie();
@@ -93,7 +91,7 @@ const compareProtein = () => {
     .sort((a, b) => {
       return b.protiens - a.protiens;
     })
-    .map((food) => food.foodname);
+    .map(names);
   console.log(content);
 };
 compareProtein();
@@ -105,8 +103,7 @@ const compareCarb = () => {
     .sort((a, b) => {
       return a.cab - b.cab;
     })
-    .map((food) => food.foodname);
-
+    .map(names);
   console.log(carbcontent);
 };
 compareCarb();
